@@ -1,0 +1,7 @@
+- name: example file
+  hosts: local
+  connection: local
+  tasks:
+  - name: hello worls
+    debug: 
+      msg: " hi worlds"
