@@ -1,0 +1,18 @@
+- name: install mongodb server
+  package:                    
+    name: mongodb-org         
+    state: present            
+- name: start and enable mongo
+  service:                    
+    name: mongod              
+    state: started            
+    enabled: yes              
+- name: allow remote connectio
+  replace:                    
+    path: /etc/mongod.conf    
+    regexp: '127.0.0.1'       
+    replace: '0.0.0.0'        
+- name: restart mongod        
+  service:                    
+    name: mongod              
+    state: restarted          
